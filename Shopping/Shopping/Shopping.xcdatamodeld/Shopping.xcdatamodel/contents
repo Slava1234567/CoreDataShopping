@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G1510" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="Person" representedClassName="Person" syncable="YES">
+        <attribute name="cash" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="shop" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Shop" inverseName="person" inverseEntity="Shop" syncable="YES"/>
+        <relationship name="shopping" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Shopping" inverseName="person" inverseEntity="Shopping" syncable="YES"/>
+    </entity>
+    <entity name="Shop" representedClassName="Shop" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="person" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="shop" inverseEntity="Person" syncable="YES"/>
+        <relationship name="shopping" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Shopping" inverseName="shop" inverseEntity="Shopping" syncable="YES"/>
+    </entity>
+    <entity name="Shopping" representedClassName="Shopping" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="shopping" inverseEntity="Person" syncable="YES"/>
+        <relationship name="shop" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Shop" inverseName="shopping" inverseEntity="Shop" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Person" positionX="-90" positionY="-207" width="128" height="103"/>
+        <element name="Shop" positionX="-83" positionY="-19" width="128" height="88"/>
+        <element name="Shopping" positionX="-326" positionY="-130" width="128" height="103"/>
+    </elements>
+</model>
